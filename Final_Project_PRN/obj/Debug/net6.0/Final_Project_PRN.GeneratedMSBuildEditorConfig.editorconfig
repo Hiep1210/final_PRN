@@ -30,8 +30,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Schedule/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVcTGlzdC5jc2h0bWw=
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Schedules/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Schedules/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Schedules/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Schedules/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Schedules/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Shared/_ValidationScriptsPartial.cshtml]

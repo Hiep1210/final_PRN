@@ -16,15 +16,15 @@ namespace Final_Project_PRN.Models
         {
         }
 
-        public virtual DbSet<Class> Classes { get; set; } = null!;
-        public virtual DbSet<Room> Rooms { get; set; } = null!;
+        public virtual DbSet<RoomBuilding> RoomBuildings { get; set; } = null!;
         public virtual DbSet<Schedule> Schedules { get; set; } = null!;
         public virtual DbSet<Subject> Subjects { get; set; } = null!;
         public virtual DbSet<Teacher> Teachers { get; set; } = null!;
+        public virtual DbSet<TimeSlot> TimeSlots { get; set; } = null!;
+        public virtual DbSet<UniversityClass> UniversityClasses { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
             if (!optionsBuilder.IsConfigured)
             {
                 var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
@@ -34,22 +34,15 @@ namespace Final_Project_PRN.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Class>(entity =>
+            modelBuilder.Entity<RoomBuilding>(entity =>
             {
-                entity.ToTable("Class");
+                entity.HasKey(e => e.BuildingType);
 
-                entity.Property(e => e.ClassId).HasMaxLength(7);
+                entity.ToTable("RoomBuilding");
 
-                entity.Property(e => e.Description).HasMaxLength(250);
-            });
+                entity.Property(e => e.BuildingType).HasMaxLength(10);
 
-            modelBuilder.Entity<Room>(entity =>
-            {
-                entity.HasKey(e => e.RoomName);
-
-                entity.ToTable("Room");
-
-                entity.Property(e => e.RoomName).HasMaxLength(5);
+                entity.Property(e => e.Description).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Schedule>(entity =>
@@ -62,7 +55,13 @@ namespace Final_Project_PRN.Models
 
                 entity.Property(e => e.DateCreated).HasColumnType("datetime");
 
-                entity.Property(e => e.Room).HasMaxLength(5);
+                entity.Property(e => e.DateEnd).HasColumnType("datetime");
+
+                entity.Property(e => e.DateStarted).HasColumnType("datetime");
+
+                entity.Property(e => e.Room).HasMaxLength(7);
+
+                entity.Property(e => e.Season).HasMaxLength(10);
 
                 entity.Property(e => e.SlotId).HasMaxLength(3);
 
@@ -75,12 +74,6 @@ namespace Final_Project_PRN.Models
                     .HasForeignKey(d => d.ClassId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Schedule_Class");
-
-                entity.HasOne(d => d.RoomNavigation)
-                    .WithMany(p => p.Schedules)
-                    .HasForeignKey(d => d.Room)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Schedule_Room");
 
                 entity.HasOne(d => d.Subject)
                     .WithMany(p => p.Schedules)
@@ -103,7 +96,7 @@ namespace Final_Project_PRN.Models
 
                 entity.Property(e => e.Description).HasMaxLength(350);
 
-                entity.Property(e => e.SubjectName).HasMaxLength(50);
+                entity.Property(e => e.SubjectName).HasMaxLength(150);
             });
 
             modelBuilder.Entity<Teacher>(entity =>
@@ -115,6 +108,27 @@ namespace Final_Project_PRN.Models
                     .HasColumnName("TeacherID");
 
                 entity.Property(e => e.TeacherName).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<TimeSlot>(entity =>
+            {
+                entity.HasKey(e => e.SlotTimeId);
+
+                entity.ToTable("TimeSlot");
+
+                entity.Property(e => e.SlotTimeId).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<UniversityClass>(entity =>
+            {
+                entity.HasKey(e => e.ClassId)
+                    .HasName("PK_Class");
+
+                entity.ToTable("UniversityClass");
+
+                entity.Property(e => e.ClassId).HasMaxLength(7);
+
+                entity.Property(e => e.Description).HasMaxLength(250);
             });
 
             OnModelCreatingPartial(modelBuilder);

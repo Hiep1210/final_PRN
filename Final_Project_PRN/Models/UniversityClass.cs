@@ -3,14 +3,15 @@ using System.Collections.Generic;
 
 namespace Final_Project_PRN.Models
 {
-    public partial class Room
+    public partial class UniversityClass
     {
-        public Room()
+        public UniversityClass()
         {
             Schedules = new HashSet<Schedule>();
         }
 
-        public string RoomName { get; set; } = null!;
+        public string ClassId { get; set; } = null!;
+        public string Description { get; set; } = null!;
 
         public virtual ICollection<Schedule> Schedules { get; set; }
     }
