@@ -1,0 +1,56 @@
+﻿@page
+@model Final_Project_PRN.Pages.Import.ImportResultModel
+@{
+}
+<style>
+    table {
+        width: 100%;
+    }
+
+    td {
+        text-align: center;
+        border: 2px solid;
+        border-color: white;
+    }
+
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: blue;
+        color: white;
+        font-weight: bold;
+        border: 2px solid;
+        border-color: white;
+    }
+</style>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>ClassId</th>
+                <th>SubjectId</th>
+                <th>Room</th>
+                <th>Teacher</th>
+                <th>SlotId</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ind in Model.ImportStatus.Keys)
+            {
+                var value = Tuple.Create(Model.ImportStatus[ind].Item1, Model.ImportStatus[ind].Item2);
+                <tr>
+                    <td>@value.Item1.Class</td>
+                    <td>@value.Item1.Subject</td>
+                    <td>@value.Item1.Room</td>
+                    <td>@value.Item1.Teacher</td>
+                    <td>@value.Item1.SlotId</td>
+                    <td>@value.Item2</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -16,7 +16,7 @@ namespace Final_Project_PRN.Models
         {
         }
 
-        public virtual DbSet<RoomBuilding> RoomBuildings { get; set; } = null!;
+        public virtual DbSet<CourseSession> CourseSessions { get; set; } = null!;
         public virtual DbSet<Schedule> Schedules { get; set; } = null!;
         public virtual DbSet<Subject> Subjects { get; set; } = null!;
         public virtual DbSet<Teacher> Teachers { get; set; } = null!;
@@ -27,37 +27,40 @@ namespace Final_Project_PRN.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-                optionsBuilder.UseSqlServer(config.GetConnectionString("Connect"));
+                optionsBuilder.UseSqlServer("server=DESKTOP-7DM08OD\\SQLEXPRESS;database=PRN221Project;user=sa;password=123456;TrustServerCertificate=true");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<RoomBuilding>(entity =>
+            modelBuilder.Entity<CourseSession>(entity =>
             {
-                entity.HasKey(e => e.BuildingType);
+                entity.ToTable("CourseSession");
 
-                entity.ToTable("RoomBuilding");
+                entity.Property(e => e.Room).HasMaxLength(7);
 
-                entity.Property(e => e.BuildingType).HasMaxLength(10);
+                entity.Property(e => e.SessionDate).HasColumnType("date");
 
-                entity.Property(e => e.Description).HasMaxLength(50);
+                entity.Property(e => e.Teacher).HasMaxLength(10);
+
+                entity.HasOne(d => d.Course)
+                    .WithMany(p => p.CourseSessions)
+                    .HasForeignKey(d => d.CourseId)
+                    .HasConstraintName("FK_CourseSession_Schedule")
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Schedule>(entity =>
             {
                 entity.ToTable("Schedule");
 
-                entity.Property(e => e.Id).HasMaxLength(10);
-
                 entity.Property(e => e.ClassId).HasMaxLength(7);
 
                 entity.Property(e => e.DateCreated).HasColumnType("datetime");
 
-                entity.Property(e => e.DateEnd).HasColumnType("datetime");
+                entity.Property(e => e.EndDate).HasColumnType("datetime");
 
-                entity.Property(e => e.DateStarted).HasColumnType("datetime");
+                entity.Property(e => e.HasSessionYet).HasColumnName("hasSessionYet");
 
                 entity.Property(e => e.Room).HasMaxLength(7);
 
@@ -65,9 +68,13 @@ namespace Final_Project_PRN.Models
 
                 entity.Property(e => e.SlotId).HasMaxLength(3);
 
+                entity.Property(e => e.StartDate).HasColumnType("datetime");
+
                 entity.Property(e => e.SubjectId).HasMaxLength(7);
 
                 entity.Property(e => e.Teacher).HasMaxLength(10);
+
+                entity.Property(e => e.TypeOfSlot).HasMaxLength(20);
 
                 entity.HasOne(d => d.Class)
                     .WithMany(p => p.Schedules)

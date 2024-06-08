@@ -1,0 +1,148 @@
+﻿@page
+@model Final_Project_PRN.Pages.Schedules.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Schedules</h1>
+<style>
+
+    .table td {
+        border: white solid 2px;
+    }
+
+    .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table tr:nth-child(2n) {
+        background-color: aliceblue;
+    }
+
+    .table .header {
+        background-color: cornflowerblue;
+    }
+
+    #header {
+        background-color: cornflowerblue;
+        font-weight: bold;
+    }
+
+    #dateth {
+        text-align: center;
+    }
+
+    #createBut {
+        border: black solid 2px;
+        background-color: blue;
+        border-radius: 10px;
+        margin: 10px;
+    }
+
+        #createBut a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        #createBut:hover {
+            background-color: dodgerblue;
+        }
+
+    #create {
+        margin: 0 auto;
+        width: 30%;
+        height: 30%;
+        position: absolute;
+        z-index: 1;
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: white;
+        text-align:center;
+        top: 20%;
+        left: 40%;
+    }
+</style>
+<button id="createBut">
+    <a onclick="show()">Add Schedule</a>
+</button>
+<table class="table">
+    <tr id="header">
+        <form method="post" asp-page-handler="date">
+        <th colspan="7" id="dateth">
+            DATE: <input type="date" name="dadate" value="@Model.SelectedDate.ToString("yyyy-MM-dd")" />
+            <input type="submit" value="View" style="padding-left: 10px; border-radius: 5px;" />
+        </th>
+        </form>
+    </tr>
+    <tr class="header" id="header">
+        <td>Room</td>
+        <td>Slot 1 <br /> (7:30 - 9:50)</td>
+        <td>Slot 2 <br /> (10:00 - 12:20)</td>
+        <td>Slot 3<br /> (12:50 - 15:10)</td>
+        <td>Slot 4<br /> (15:20 - 17:40)</td>
+        <td>Slot 5<br /> (18:00 - 20:20)</td>
+        <td>Slot 6<br /> (20:20 - 22:40)</td>
+    </tr>
+    @{
+        var dictionary = Model.dictionary;
+    }
+    @foreach (var room in Model.RoomInSchedule)
+    {
+        <tr>
+            <td>@room</td>
+            @for (int i = 1; i <= 6; i++)
+            {
+
+                var key = Tuple.Create(room, i);
+                Common.DisplayCell value = new Common.DisplayCell();
+                if (dictionary.TryGetValue(key, out value))
+                {
+                    <td>
+                        @value.Class<br />
+                        @value.Subject<br />
+                        @value.Teacher
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+            }
+        </tr>
+    }
+    <div id="create"  style="display:none">
+        <form method="post" enctype="multipart/form-data" asp-page-handler="import">
+            <div class="form-group">
+
+                <label>Choose file</label><br />
+                <input type="file" class="form-control-file" id="fileInput" name="FileUpload" accept=".json, .xml, .csv">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+</table>
+    <script>
+        function show(){
+            var form = document.getElementById("create");
+            if (form.style.display == "block") {
+                form.style.display = "none";
+            }else
+            form.style.display = "block";
+        }
+    </script>
+@if (TempData["Message"] != null)
+{
+    <script>
+        window.onload = function () {
+            alert("@TempData["Message"]");
+        }
+    </script>
+}
+<script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>

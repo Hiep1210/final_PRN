@@ -20,7 +20,7 @@ namespace Final_Project_PRN.Pages.Schedules
 
       public Schedule Schedule { get; set; } = default!; 
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Schedules == null)
             {

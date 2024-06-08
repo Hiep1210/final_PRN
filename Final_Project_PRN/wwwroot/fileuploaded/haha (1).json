@@ -1,0 +1,37 @@
+[
+  {
+    "Class": "SE1702",
+    "Subject": "PRN221",
+    "Room": "BE-113",
+    "Teacher": "KhuongPD",
+    "SlotId": "A36"
+  },
+  {
+    "Class": "SE1704",
+    "Subject": "CSD201",
+    "Room": "BE-114",
+    "Teacher": "KhuongPD",
+    "SlotId": "P26"
+  },
+  {
+    "Class": "SE1705",
+    "Subject": "EXE101",
+    "Room": "BE-113",
+    "Teacher": "BanTQ",
+    "SlotId": "A36"
+  },
+  {
+    "Class": "SE1701",
+    "Subject": "PRN221",
+    "Room": "BE-117",
+    "Teacher": "BanTQ",
+    "SlotId": "A36"
+  },
+  {
+    "Class": "SE1707",
+    "Subject": "PRN221",
+    "Room": "BE-113",
+    "Teacher": "BanTQ",
+    "SlotId": "A24"
+  }
+]

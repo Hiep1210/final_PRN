@@ -22,7 +22,7 @@ namespace Final_Project_PRN.Pages.Schedules
         [BindProperty]
         public Schedule Schedule { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Schedules == null)
             {
@@ -71,7 +71,7 @@ namespace Final_Project_PRN.Pages.Schedules
             return RedirectToPage("./Index");
         }
 
-        private bool ScheduleExists(string id)
+        private bool ScheduleExists(int id)
         {
           return (_context.Schedules?.Any(e => e.Id == id)).GetValueOrDefault();
         }

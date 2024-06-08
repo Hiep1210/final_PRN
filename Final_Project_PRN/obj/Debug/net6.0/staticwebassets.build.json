@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tiLy+uoXMp8ev9BLylC/nxNq+AtpogXZmIys2sZPPVE=",
+  "Hash": "ZXTXTkKyBu+G3ock2pXujFQ0yuulIP5v4Wtq05TLyro=",
   "Source": "Final_Project_PRN",
   "BasePath": "_content/Final_Project_PRN",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Ki_7\\PRN221\\Final_Project_PRN\\Final_Project_PRN\\wwwroot\\fileuploaded\\haha (1).json",
+      "SourceId": "Final_Project_PRN",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Ki_7\\PRN221\\Final_Project_PRN\\Final_Project_PRN\\wwwroot\\",
+      "BasePath": "_content/Final_Project_PRN",
+      "RelativePath": "fileuploaded/haha (1).json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fileuploaded\\haha (1).json"
     },
     {
       "Identity": "D:\\Ki_7\\PRN221\\Final_Project_PRN\\Final_Project_PRN\\wwwroot\\js\\site.js",

@@ -1,11 +1,19 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Final_Project_PRN.Models;
+using Final_Project_PRN.Services;
+using Final_Project_PRN.Pages.Validate;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<PRN221ProjectContext>();
+builder.Services.AddTransient<ScheduleService>();
+builder.Services.AddTransient<TeacherServices>();
+builder.Services.AddTransient<SubjectService>();
+builder.Services.AddTransient<UniversityClassService>();
+builder.Services.AddTransient<CourseSessionService>();
+builder.Services.AddTransient<ValidateSchedule>();
 
 var app = builder.Build();
 

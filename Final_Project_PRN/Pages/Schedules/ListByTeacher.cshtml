@@ -1,0 +1,96 @@
+﻿@page
+@model Final_Project_PRN.Pages.Schedules.ListByTeacher
+@{
+}
+<style>
+    table {
+        width: 100%;
+    }
+
+    td {
+        text-align: center;
+        border: 2px solid;
+        border-color: white;
+    }
+
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: blue;
+        color: white;
+        font-weight: bold;
+        border: 2px solid;
+        border-color: white;
+    }
+</style>
+<h1>Schedule For Teacher</h1>
+<div>
+    <form method="get" >
+        <select asp-for="teacher">
+            @foreach (var teacherId in Model.TeacherList)
+            {
+                <option value="@teacherId">@teacherId</option>
+            }
+        </select>
+        <select asp-for="week">
+            @for (int i = 1; i < 12; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+        <input type="submit" value="View Schedule" />
+    </form>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Slot / Day of week</th>
+                @for (int i = 2; i < 9; i++)
+                {
+                    @if (i == 8)
+                    {
+                        <th>CN</th>
+                    }
+                    else
+                    {
+                        <th>@i</th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var dict = Model.SessDict;
+            }
+            @for (int slot = 1; slot <= 6; slot++)
+            {
+                <tr>
+                    <td>Slot @slot</td>
+                    @for (int i = 2; i < 9; i++)
+                    {
+                        var key = Tuple.Create(i, slot);
+                        Common.DisplayCell value = new Common.DisplayCell();
+                        if (dict.TryGetValue(key, out value))
+                        {
+                            <td>
+                                @value.Class<br />
+                                @value.Subject<br />
+                                @value.Teacher
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    }
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

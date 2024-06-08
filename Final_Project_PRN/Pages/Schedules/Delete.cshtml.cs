@@ -21,7 +21,7 @@ namespace Final_Project_PRN.Pages.Schedules
         [BindProperty]
       public Schedule Schedule { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Schedules == null)
             {
@@ -41,7 +41,7 @@ namespace Final_Project_PRN.Pages.Schedules
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null || _context.Schedules == null)
             {

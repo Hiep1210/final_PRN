@@ -18,8 +18,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Ki_7\PRN221\Final_Project_PRN\Final_Project_PRN
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Class/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Class/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Class/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Class/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Class/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Import/ImportResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW1wb3J0XEltcG9ydFJlc3VsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Index.cshtml]
@@ -46,8 +70,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Schedules/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzXEluZGV4LmNzaHRtbA==
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Schedules/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Schedules/ListByTeacher.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzXExpc3RCeVRlYWNoZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ki_7/PRN221/Final_Project_PRN/Final_Project_PRN/Pages/Shared/_ValidationScriptsPartial.cshtml]
